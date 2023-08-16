@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_galaxy/common/rpx.dart';
 import 'package:food_galaxy/route/route.dart';
 
 import 'common/theme.dart';
@@ -13,6 +14,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // 初始化 rpx
+    QYRpx.init(context);
+
     return MaterialApp(
       title: '美食荟萃',
       // 主题

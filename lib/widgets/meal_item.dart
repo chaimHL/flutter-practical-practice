@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:food_galaxy/common/rpx.dart';
 import 'package:food_galaxy/model/meal_model.dart';
+import 'package:food_galaxy/pages/meal_detail/meal_detail.dart';
 import 'package:food_galaxy/widgets/icon_label.dart';
 
 class QYMealItem extends StatelessWidget {
@@ -13,15 +14,21 @@ class QYMealItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: EdgeInsets.only(
-          left: 20.rpx, right: 20.rpx, top: 20.rpx, bottom: 10.rpx),
-      elevation: 4.rpx, // 阴影
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(_borderRadius)), // 圆角
-      child: Column(
-        children: [buildItemTop(context), buildItemBottom()],
+    return GestureDetector(
+      child: Card(
+        margin: EdgeInsets.only(
+            left: 20.rpx, right: 20.rpx, top: 20.rpx, bottom: 10.rpx),
+        elevation: 4.rpx, // 阴影
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(_borderRadius)), // 圆角
+        child: Column(
+          children: [buildItemTop(context), buildItemBottom()],
+        ),
       ),
+      onTap: () {
+        Navigator.of(context)
+            .pushNamed(QYMealDetailPage.routeName, arguments: _meal);
+      },
     );
   }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_galaxy/pages/initial/initial.dart';
 import 'package:food_galaxy/pages/meal/meal.dart';
+import 'package:food_galaxy/pages/meal_detail/meal_detail.dart';
 
 import '../pages/unknown/404.dart';
 
@@ -8,7 +9,8 @@ class QYRoute {
   // 映射
   static final Map<String, WidgetBuilder> routes = {
     QYInitialPage.routeName: (ctx) => QYInitialPage(),
-    QYMealPage.routeName: (ctx) => QYMealPage()
+    QYMealPage.routeName: (ctx) => QYMealPage(),
+    QYMealDetailPage.routeName: (ctx) => QYMealDetailPage()
   };
 
   // 初始页

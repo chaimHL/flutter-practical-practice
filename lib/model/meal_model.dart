@@ -5,12 +5,15 @@ QyMealModel qyMealModelFromJson(String str) =>
 
 String qyMealModelToJson(QyMealModel data) => json.encode(data.toJson());
 
+List<String> complexityArr = ['简单', '普通', '困难'];
+
 class QyMealModel {
   String? id;
   List<String>? categories;
   String? title;
   int? affordability;
   int? complexity;
+  String? complexityStr;
   String? imageUrl;
   int? duration;
   List<String>? ingredients;
@@ -26,6 +29,7 @@ class QyMealModel {
     this.title,
     this.affordability,
     this.complexity,
+    this.complexityStr,
     this.imageUrl,
     this.duration,
     this.ingredients,
@@ -44,6 +48,7 @@ class QyMealModel {
         title: json["title"],
         affordability: json["affordability"],
         complexity: json["complexity"],
+        complexityStr: complexityArr[json["complexity"]],
         imageUrl: json["imageUrl"],
         duration: json["duration"],
         ingredients: json["ingredients"] == null

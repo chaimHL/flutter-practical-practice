@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_galaxy/model/category_model.dart';
 import 'package:food_galaxy/model/meal_model.dart';
 import 'package:food_galaxy/store/meal_store.dart';
+import 'package:food_galaxy/widgets/meal_item.dart';
 import 'package:provider/provider.dart';
 import 'package:collection/collection.dart';
 
@@ -33,7 +34,7 @@ class QYMealPage extends StatelessWidget {
           return ListView.builder(
             itemCount: value.length,
             itemBuilder: (ctx, index) {
-              return Text(value[index].title ?? '1');
+              return QYMealItem(value[index]);
             },
           );
         },

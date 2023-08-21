@@ -17,6 +17,8 @@ class QYTheme {
       displayMedium: TextStyle(fontSize: mediumFontSize),
       displayLarge: TextStyle(fontSize: largeFontSize),
     ),
+    floatingActionButtonTheme:
+        FloatingActionButtonThemeData(backgroundColor: Colors.deepOrangeAccent),
   );
 
   // 暗黑模式

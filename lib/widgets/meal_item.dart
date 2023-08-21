@@ -32,30 +32,6 @@ class QYMealItem extends StatelessWidget {
     );
   }
 
-  // item 底部图片栏
-  Padding buildItemBottom() {
-    return Padding(
-      padding: EdgeInsets.all(20.rpx),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          QYIconLabel(
-            icon: Icon(Icons.access_time),
-            label: '${_meal.duration}分钟',
-          ),
-          QYIconLabel(
-            icon: Icon(Icons.restaurant),
-            label: '${_meal.complexityStr}',
-          ),
-          QYIconLabel(
-            icon: Icon(Icons.favorite_border),
-            label: '未收藏',
-          )
-        ],
-      ),
-    );
-  }
-
   // item 头部图片区域
   Stack buildItemTop(context) {
     return Stack(
@@ -64,8 +40,11 @@ class QYMealItem extends StatelessWidget {
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(_borderRadius),
               topRight: Radius.circular(_borderRadius)),
-          child: Image.network(
-            _meal.imageUrl!,
+          child: FadeInImage(
+            placeholder: AssetImage('assets/images/placeholder.png'),
+            image: NetworkImage(
+              _meal.imageUrl!,
+            ),
             width: double.infinity,
             height: 480.rpx,
             fit: BoxFit.cover,
@@ -87,6 +66,30 @@ class QYMealItem extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  // item 底部图标文字栏
+  Padding buildItemBottom() {
+    return Padding(
+      padding: EdgeInsets.all(20.rpx),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          QYIconLabel(
+            icon: Icon(Icons.access_time),
+            label: '${_meal.duration}分钟',
+          ),
+          QYIconLabel(
+            icon: Icon(Icons.restaurant),
+            label: '${_meal.complexityStr}',
+          ),
+          QYIconLabel(
+            icon: Icon(Icons.favorite_border),
+            label: '未收藏',
+          )
+        ],
+      ),
     );
   }
 }

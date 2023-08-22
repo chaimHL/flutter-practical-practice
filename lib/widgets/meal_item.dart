@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:food_galaxy/common/rpx.dart';
 import 'package:food_galaxy/model/meal_model.dart';
 import 'package:food_galaxy/pages/meal_detail/meal_detail.dart';
+import 'package:food_galaxy/store/favor_store.dart';
 import 'package:food_galaxy/widgets/icon_label.dart';
+import 'package:provider/provider.dart';
 
 class QYMealItem extends StatelessWidget {
   QYMealItem(QyMealModel this._meal, {super.key});
@@ -84,12 +86,30 @@ class QYMealItem extends StatelessWidget {
             icon: Icon(Icons.restaurant),
             label: '${_meal.complexityStr}',
           ),
-          QYIconLabel(
-            icon: Icon(Icons.favorite_border),
-            label: '未收藏',
-          )
+          buildFavor()
         ],
       ),
+    );
+  }
+
+  Widget buildFavor() {
+    return Consumer<QYFavorStore>(
+      builder: (ctx, value, child) {
+        final isFavor = value.isFavor(_meal);
+        return GestureDetector(
+          behavior: HitTestBehavior.opaque, // 让透明的 padding 部分可以响应点击
+          child: QYIconLabel(
+            icon: Icon(
+              isFavor ? Icons.favorite : Icons.favorite_border,
+              color: isFavor ? Colors.deepOrange : Colors.black,
+            ),
+            label: isFavor ? '已收藏' : '未收藏',
+          ),
+          onTap: () {
+            value.processFavor(_meal);
+          },
+        );
+      },
     );
   }
 }

@@ -9,17 +9,20 @@ class QYIconLabel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        icon,
-        SizedBox(
-          width: 8.rpx,
-        ),
-        Text(
-          label,
-          style: Theme.of(context).textTheme.displaySmall,
-        ),
-      ],
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 8.rpx, horizontal: 20.rpx),
+      child: Row(
+        children: [
+          icon,
+          SizedBox(
+            width: 8.rpx,
+          ),
+          Text(
+            label,
+            style: Theme.of(context).textTheme.displaySmall,
+          ),
+        ],
+      ),
     );
   }
 }

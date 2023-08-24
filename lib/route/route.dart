@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_galaxy/pages/filter/filter.dart';
 import 'package:food_galaxy/pages/initial/initial.dart';
 import 'package:food_galaxy/pages/meal/meal.dart';
 import 'package:food_galaxy/pages/meal_detail/meal_detail.dart';
@@ -10,7 +11,8 @@ class QYRoute {
   static final Map<String, WidgetBuilder> routes = {
     QYInitialPage.routeName: (ctx) => QYInitialPage(),
     QYMealPage.routeName: (ctx) => QYMealPage(),
-    QYMealDetailPage.routeName: (ctx) => QYMealDetailPage()
+    QYMealDetailPage.routeName: (ctx) => QYMealDetailPage(),
+    QYFilterPage.routeName: (ctx) => QYFilterPage()
   };
 
   // 初始页

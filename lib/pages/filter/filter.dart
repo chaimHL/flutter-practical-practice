@@ -3,6 +3,8 @@ import 'package:food_galaxy/common/rpx.dart';
 import 'package:food_galaxy/store/filter_store.dart';
 import 'package:provider/provider.dart';
 
+import '../../i18n/localizations.dart';
+
 class QYFilterPage extends StatelessWidget {
   static const String routeName = '/filter';
 
@@ -20,7 +22,11 @@ class QYFilterPage extends StatelessWidget {
 
   Column buildBody(BuildContext context) {
     return Column(
-      children: [buildBodyTitle(context), buildBodyList()],
+      children: [
+        buildBodyTitle(context),
+        buildBodyList(),
+        buildi18ntest(context)
+      ],
     );
   }
 
@@ -80,6 +86,21 @@ class QYFilterPage extends StatelessWidget {
           );
         },
       ),
+    );
+  }
+
+  // 国际化测试
+  Widget buildi18ntest(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        showDatePicker(
+          context: context,
+          initialDate: DateTime.now(),
+          firstDate: DateTime(2000),
+          lastDate: DateTime(3000),
+        );
+      },
+      child: Text(QYLocalizations.of(context).xuanzeriqi!),
     );
   }
 }

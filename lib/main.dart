@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:food_galaxy/common/rpx.dart';
+import 'package:food_galaxy/i18n/localizations_delegate.dart';
 import 'package:food_galaxy/route/route.dart';
 import 'package:food_galaxy/store/favor_store.dart';
 import 'package:food_galaxy/store/filter_store.dart';
@@ -38,6 +40,14 @@ class MyApp extends StatelessWidget {
       title: '美食荟萃',
       // 主题
       theme: QYTheme.theme,
+      // 国际化
+      supportedLocales: [Locale('zh'), Locale('en')],
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        QYlocalizationsDelegate.delegate
+      ],
       // 路由
       routes: QYRoute.routes,
       initialRoute: QYRoute.initialRoute,

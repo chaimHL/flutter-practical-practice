@@ -12,8 +12,12 @@ class QYlocalizationsDelegate extends LocalizationsDelegate<QYLocalizations> {
   }
 
   @override
-  Future<QYLocalizations> load(Locale locale) {
-    return SynchronousFuture(QYLocalizations(locale));
+  Future<QYLocalizations> load(Locale locale) async {
+    // return SynchronousFuture(QYLocalizations(locale));
+
+    final lo = QYLocalizations(locale);
+    await lo.loadJson();
+    return lo;
   }
 
   // 当需要国际化的 widget 重新 build 时，是否调用 load 重新加载 QYLocalizations 资源

@@ -3,6 +3,7 @@ import 'package:food_galaxy/common/rpx.dart';
 import 'package:food_galaxy/store/filter_store.dart';
 import 'package:provider/provider.dart';
 
+import '../../generated/l10n.dart';
 import '../../i18n/localizations.dart';
 
 class QYFilterPage extends StatelessWidget {
@@ -100,7 +101,8 @@ class QYFilterPage extends StatelessWidget {
           lastDate: DateTime(3000),
         );
       },
-      child: Text(QYLocalizations.of(context).xuanzeriqi!),
+      // child: Text(QYLocalizations.of(context).xuanzeriqi!),
+      child: Text(S.of(context).xuanzeriqi('8')),
     );
   }
 }

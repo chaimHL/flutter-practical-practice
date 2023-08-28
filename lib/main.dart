@@ -9,6 +9,7 @@ import 'package:food_galaxy/store/meal_store.dart';
 import 'package:provider/provider.dart';
 
 import 'common/theme.dart';
+import 'generated/l10n.dart';
 
 void main() {
   runApp(MultiProvider(
@@ -41,12 +42,14 @@ class MyApp extends StatelessWidget {
       // 主题
       theme: QYTheme.theme,
       // 国际化
-      supportedLocales: [Locale('zh'), Locale('en')],
+      // supportedLocales: [Locale('zh'), Locale('en')],
+      supportedLocales: S.delegate.supportedLocales,
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
-        QYlocalizationsDelegate.delegate
+        // QYlocalizationsDelegate.delegate
+        S.delegate
       ],
       // 路由
       routes: QYRoute.routes,

@@ -51,6 +51,7 @@ class MyApp extends StatelessWidget {
         // QYlocalizationsDelegate.delegate
         S.delegate
       ],
+      locale: Locale('en'),
       // 路由
       routes: QYRoute.routes,
       initialRoute: QYRoute.initialRoute,

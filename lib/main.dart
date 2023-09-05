@@ -6,6 +6,7 @@ import 'package:food_galaxy/route/route.dart';
 import 'package:food_galaxy/store/favor_store.dart';
 import 'package:food_galaxy/store/filter_store.dart';
 import 'package:food_galaxy/store/meal_store.dart';
+import 'package:food_galaxy/store/profile_store.dart';
 import 'package:provider/provider.dart';
 
 import 'common/theme.dart';
@@ -14,6 +15,7 @@ import 'generated/l10n.dart';
 void main() {
   runApp(MultiProvider(
     providers: [
+      ChangeNotifierProvider(create: (ctx) => QYProfileStore()),
       ChangeNotifierProvider(create: (ctx) => QYFavorStore()),
       ChangeNotifierProvider(create: (ctx) => QYFilterStore()),
       ChangeNotifierProxyProvider<QYFilterStore, QYMealStore>(
@@ -51,7 +53,7 @@ class MyApp extends StatelessWidget {
         // QYlocalizationsDelegate.delegate
         S.delegate
       ],
-      locale: Locale('en'),
+      // locale: Locale('en'),
       // 路由
       routes: QYRoute.routes,
       initialRoute: QYRoute.initialRoute,

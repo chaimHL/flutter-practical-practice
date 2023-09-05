@@ -19,7 +19,6 @@ class QYHomePage extends StatelessWidget {
         ),
       ),
       body: QYHomeBody(),
-      drawer: Drawer(),
     );
   }
 }

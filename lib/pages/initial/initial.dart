@@ -1,8 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:food_galaxy/common/rpx.dart';
 import 'package:food_galaxy/pages/favor/favor.dart';
 import 'package:food_galaxy/pages/filter/filter.dart';
 import 'package:food_galaxy/pages/home/home.dart';
+import 'package:food_galaxy/pages/initial/drawer.dart';
+import 'package:image_picker/image_picker.dart';
 
 class QYInitialPage extends StatefulWidget {
   static const String routeName = '/';
@@ -15,6 +19,7 @@ class QYInitialPage extends StatefulWidget {
 
 class _QYInitialPageState extends State<QYInitialPage> {
   int _currentIndex = 0;
+  XFile? _avatarImg; // 头像图片
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +29,7 @@ class _QYInitialPageState extends State<QYInitialPage> {
         children: [QYHomePage(), QYFavorPage()],
       ),
       bottomNavigationBar: buildBottomNavigationBar(),
-      drawer: buildDrawer(context),
+      drawer: QYDrawer(),
     );
   }
 
@@ -41,55 +46,6 @@ class _QYInitialPageState extends State<QYInitialPage> {
           _currentIndex = index;
         });
       },
-    );
-  }
-
-  // 侧边抽屉
-  Drawer buildDrawer(BuildContext context) {
-    return Drawer(
-      child: Column(
-        children: [
-          buildDrawerTop(context),
-          ListTile(
-            leading: Icon(Icons.settings),
-            title: Text(
-              '过滤',
-              style: Theme.of(context).textTheme.displayMedium,
-            ),
-            onTap: () {
-              // 弹出过滤页面
-              Navigator.of(context).pushNamed(QYFilterPage.routeName);
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.close),
-            title: Text(
-              '关闭',
-              style: Theme.of(context).textTheme.displayMedium,
-            ),
-            onTap: () {
-              Navigator.of(context).pop();
-            },
-          ),
-        ],
-      ),
-    );
-  }
-
-  // 侧边抽屉头部
-  Container buildDrawerTop(BuildContext context) {
-    return Container(
-      height: 300.rpx,
-      alignment: Alignment(0, 0.5),
-      color: Colors.amber,
-      margin: EdgeInsets.only(bottom: 20.rpx),
-      child: Text(
-        '我是头部标题',
-        style: Theme.of(context)
-            .textTheme
-            .displayLarge
-            ?.copyWith(fontWeight: FontWeight.bold),
-      ),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:food_galaxy/common/rpx.dart';
+import 'package:food_galaxy/pages/battery/battery.dart';
 import 'package:food_galaxy/store/profile_store.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
@@ -30,6 +31,17 @@ class _QYDrawerState extends State<QYDrawer> {
             onTap: () {
               // 弹出过滤页面
               Navigator.of(context).pushNamed(QYFilterPage.routeName);
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.battery_5_bar_sharp),
+            title: Text(
+              '电量',
+              style: Theme.of(context).textTheme.displayMedium,
+            ),
+            onTap: () {
+              // 弹出过滤页面
+              Navigator.of(context).pushNamed(QYBatteryPage.routeName);
             },
           ),
           ListTile(

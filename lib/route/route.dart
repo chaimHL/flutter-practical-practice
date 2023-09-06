@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_galaxy/pages/battery/battery.dart';
 import 'package:food_galaxy/pages/filter/filter.dart';
 import 'package:food_galaxy/pages/initial/initial.dart';
 import 'package:food_galaxy/pages/meal/meal.dart';
@@ -12,7 +13,8 @@ class QYRoute {
     QYInitialPage.routeName: (ctx) => QYInitialPage(),
     QYMealPage.routeName: (ctx) => QYMealPage(),
     QYMealDetailPage.routeName: (ctx) => QYMealDetailPage(),
-    QYFilterPage.routeName: (ctx) => QYFilterPage()
+    QYFilterPage.routeName: (ctx) => QYFilterPage(),
+    QYBatteryPage.routeName: (ctx) => QYBatteryPage()
   };
 
   // 初始页
